@@ -1,0 +1,89 @@
+table {
+  width: 100%;
+  text-align: start;
+  border-spacing: 0px;
+}
+thead  {
+  width: 50%;
+  color: red;
+  margin: 0;
+}
+
+thead  th {
+  color: #1621b7;
+  padding: 14px 0;
+  background-color: #3c44b126;
+  text-align: start;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+
+
+tbody td {
+  padding: 14px 0;
+  padding-left: 10px;
+  border-bottom: 1px solid #999;
+  font-size: 14px;
+  color: #232323;
+}
+
+
+table td.flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.flex .Delete-item  {
+  width: 35px;
+  height: 32px;
+  font-weight: 500;
+  padding: 0 10px 10px 5px;
+  background-color: #f8324526;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.flex .Delete-item:hover {
+  background-color: #fff;
+}
+
+.flex .Delete-item::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  border-radius: 10px;
+  background-color: red;
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  transform: rotate(-45deg);
+}
+.flex .Delete-item::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  border-radius: 10px;
+  background-color: red;
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  transform: rotate(45deg);
+
+
+}
+
+.flex .Change {
+  color: #1621b7;
+  padding: 6px 8px;
+  background-color: #3c44b126;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.flex .Change:hover {
+  background-color: #fff;
+}
+

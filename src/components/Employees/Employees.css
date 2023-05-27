@@ -1,0 +1,119 @@
+.Employee {
+  margin-top: 35px;
+  padding: 0 35px;
+
+}
+
+.Employee-title {
+  display: flex;
+  align-items: center;
+}
+
+.Employee-title .Employee-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #99999965;
+  text-align: center;
+  padding-top: 12px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+.Employee-title .Employee-icon svg {
+  width: 35px;
+  height: 35px;
+  color: #3C44B1;
+}
+
+.Employee-title .title  h1{
+  font-size: 28px;
+  font-weight: 400;
+  color: #242222f7;
+}
+
+.Employee-title .title p {
+  font-size: 13px;
+  color: #999;
+}
+
+.Employee-bg {
+  margin-top: 70px;
+  padding: 25px 20px 20px 20px;
+  border: 1px solid #d0cccc;
+  border-radius: 5px;
+  box-shadow: -2px -20px 0px 24px rgba(244,245,253,1);
+}
+
+.Employee-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+}
+
+.Employee-box .Employee-search  {
+  width: 75%;
+  position: relative;
+}
+
+.Employee-box .Employee-search input {
+  width: 100%;
+  padding: 18px;
+  padding-left: 40px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.Employee-box .Employee-search input:focus {
+  outline: 2px solid #1621b7;
+}
+
+
+.Employee-box .Employee-search p {
+  position: absolute;
+  top: -12px;
+  left: 13px;
+  color: #999;
+  background-color: #fff;
+}
+
+.Employee-box .Employee-search svg {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 15px;
+  left: 12px;
+}
+
+
+.Employee-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #1621b7c2;
+  border: 1px solid #3c44b1cd;
+  border-radius: 5px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.Employee-add-btn:hover {
+  color: #1621b7;
+  border: 1px solid #1621b7;
+}
+
+.Employee-add-btn span {
+  font-size: 30px;
+  margin-right: 5px;
+  margin-top: -5px;
+}
+
+.Employee-add-btn p {
+  font-size: 15px;
+  font-weight: 600;
+}

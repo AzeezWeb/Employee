@@ -1,0 +1,19 @@
+.App {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.App-bg {
+  width: 20%;
+  height: 100vh;
+  background-color: #253053;
+}
+
+.App-items {
+  width: 80%;
+  min-height: 100vh;
+  position: relative;
+}
+
+
