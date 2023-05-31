@@ -225,3 +225,6 @@ form input[type='checkbox'] {
   background-color: #c3c1c1; ;
 }
 
+form input.invalid {
+  outline: 1px solid red;
+}

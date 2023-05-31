@@ -2,29 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./EmployeeForm.css";
 
 
+
 function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
+
   
-  const initialValue = {
-    id: changeId[1].id,
-    name: changeId[1].name,
-    email: changeId[1].email,
-    mobile: changeId[1].mobile,
-    city: changeId[1].city,
-    department: changeId[1].department,
-  }
-  console.log(changeId);
   const [value, setValue] = useState('')
   
   useEffect(() => {
-      setValue(initialValue)
+    setValue({
+      id: changeId[1].id,
+      name: changeId[1].name,
+      email: changeId[1].email,
+      mobile: changeId[1].mobile,
+      city: changeId[1].city,
+      department: changeId[1].department,
+    })
   },[changeId])
 
-
+  console.log(value);
   const SubmitHandler = (e) => {
     e.preventDefault();
     dispatch( { type: 'Change', payload: { value: value}})
-    setChangeId(false, '')
-    setValue(initialValue)
+    setChangeId(false, )
+    
   }
 
 
@@ -36,7 +36,7 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
     <div className={changeId[0] ? "Employee-Form-bg active" : "Employee-Form-bg"}>
       <div className="Employee-Form">
         <div className="Employee-Form-title">
-          <h2> Employee Form 2</h2>
+          <h2> Employee Form </h2>
           <button onClick={() => setChangeId([false, ''])}></button>
         </div>
         <form  onSubmit={SubmitHandler}>
@@ -66,7 +66,6 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
               onChange={inputHandler}
             />
             <input
-              defaultValue={value.city}
               id="city"
               type="text"
               name="city"
@@ -90,8 +89,8 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
                 <span>Other</span>
               </label>
             </div>
-            <select onChange={inputHandler} name="department">
-              <option value="Department">Department</option>
+            <select onChange={inputHandler}  name="department">
+              <option selected value="Department">Department</option>
               <option value="Development">Development</option>
               <option value="Marketing">Marketing</option>
               <option value="Accounting">Accounting</option>

@@ -9,20 +9,24 @@ const initialValue = {
   city: "",
   department: "",
 }
-function EmployeeForm({ add, setAdd, changeValue, dispatch }) {
-
+function EmployeeForm({ add, setAdd,  dispatch }) {
  
+
+
   const [value, setValue] = useState(initialValue);
 
-  // setValue(changeValue)
+  
+
   const SubmitHandler = (e) => {
     e.preventDefault();
-    dispatch( { type: 'Add', payload: { value: value}})
-    setAdd(false)
-    setValue(initialValue)
+    if(value.name !== '' && value.mobile.length <= 10 && value.department !== '' && value.email !== '') {
+      dispatch( { type: 'Add', payload: { value: value}})
+      setAdd(false)
+      setValue(initialValue)
+    } 
   }
 
-
+  
   const inputHandler = (e) => {
     const { name, value} = e.target;
     setValue((prev) => ( {...prev, [name]: value}))
@@ -38,6 +42,7 @@ function EmployeeForm({ add, setAdd, changeValue, dispatch }) {
         <form onSubmit={SubmitHandler} >
           <div>
             <input
+             
               value={value.name}
               id="full-name"
               type="text"

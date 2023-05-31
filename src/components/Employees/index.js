@@ -3,10 +3,20 @@ import './Employees.css'
 import { HiUsers} from 'react-icons/hi'
 import { AiOutlineSearch } from 'react-icons/ai'
 import EmployeTable from "../Table";
+import { useState } from "react";
 
 
 
 function Employees( { addNew, setRemove,  data, dispatch, setChangeId}) {
+  const [value, setValue] = useState('')
+ 
+  const search = (e) => { 
+    setValue(e.target.value)
+  }
+  const filter = data.filter((item) => {
+    return item.name.toLowerCase().includes(value)
+  })
+
   return ( 
   <>
     <div className="Employee">
@@ -24,13 +34,13 @@ function Employees( { addNew, setRemove,  data, dispatch, setChangeId}) {
             <div className="Employee-search">
               <p> Search Employees</p>
               <AiOutlineSearch />
-              <input type="text"/>
+              <input type="text" onChange={search}/>
             </div>
             <div className= "Employee-add-btn" onClick={() => addNew(true)}> 
             <span> + </span><p> Add New</p>
             </div>
           </div>
-          <EmployeTable  setRemove={setRemove}  data={data} dispatch={dispatch} setChangeId={setChangeId}/>
+          <EmployeTable  setRemove={setRemove}  data={value === '' ? data : filter} dispatch={dispatch} setChangeId={setChangeId}/>
         </div>
     </div>
   </>

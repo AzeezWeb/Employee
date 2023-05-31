@@ -1,3 +1,5 @@
+
+
 table {
   width: 100%;
   text-align: start;
@@ -16,7 +18,28 @@ thead  th {
   text-align: start;
   padding-left: 10px;
   cursor: pointer;
+  position: relative;
 }
+
+thead  th.active {
+  color: #202020;
+  position: relative;
+}
+
+thead th svg {
+  display: none;
+  position: absolute;
+}
+
+thead  th.active.bottom svg {
+  display: inline-block;
+  transform: rotate(0deg) translate(5px) translateY(2px);
+}
+thead  th.active.top svg {
+  display: inline-block;
+  transform: rotate(180deg) translateX(-5px) translateY(-2px);
+}
+
 
 
 
