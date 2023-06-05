@@ -1,21 +1,14 @@
-import React, {  useReducer, useState } from 'react';
-// import { useLocalStorage } from './hooks/useLocalStorage'
+import React, { useReducer, useState } from 'react';
 import './App.css';
 import Header from './components/Header'
 import Employees from './components/Employees'
 import EmployeeForm from './components/Employee-Form';
 import EmployeeFormChange from './components/Employee-Form-Change';
 import Delete from './components/Delete';
-
-
+import { useEffect } from 'react';
 
 
 function App() {
-
-  // const [value, setValue] = useLocalStorage([], 'data')
- 
-
- 
   const reducer = (state, action) => {
     switch(action.type) {
       case 'Add' :
@@ -41,19 +34,28 @@ function App() {
             }
            })
           return change;
+ 
         default: return state
     }
   }
 
 
+
+
   const [changeId, setChangeId] =useState([false, ''])
   const [ AddNew, setAddNew] = useState(false)
   const [ remove, setRemove ] = useState([false, 0])
-  const [ data, dispatch] = useReducer(reducer, [])
+  const [ data, dispatch] = useReducer(reducer, [], () => {
+    const locData = localStorage.getItem("data")
+    return locData ? JSON.parse(locData) : []
+  })
+  
   
 
-  // setValue( ...value, data)
-  
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data))
+  }, [data])
+
   return (
     <div className="App">
       <div className='App-bg'></div>

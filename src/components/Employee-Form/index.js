@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import "./EmployeeForm.css";
+import InputMask from 'react-input-mask';
+import { Calendar } from 'primereact/calendar';
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+import "primereact/resources/primereact.min.css";                                       
+               
 
 
 const initialValue = {
@@ -19,11 +24,9 @@ function EmployeeForm({ add, setAdd,  dispatch }) {
 
   const SubmitHandler = (e) => {
     e.preventDefault();
-    if(value.name !== '' && value.mobile.length <= 10 && value.department !== '' && value.email !== '') {
-      dispatch( { type: 'Add', payload: { value: value}})
+    dispatch( { type: 'Add', payload: { value: value}})
       setAdd(false)
       setValue(initialValue)
-    } 
   }
 
   
@@ -58,12 +61,10 @@ function EmployeeForm({ add, setAdd,  dispatch }) {
               placeholder="Email"
               onChange={inputHandler}
             />
-            <input
+            <InputMask mask='+(999) 99 999-99-99'
               value={value.mobile}
               id="number"
-              type="number"
               name="mobile"
-              min={10}
               placeholder="Mobile"
               onChange={inputHandler}
             />
@@ -100,7 +101,7 @@ function EmployeeForm({ add, setAdd,  dispatch }) {
               <option value="HR"> HR</option>
             </select>
             <label>
-              <input type="date" value="28.05.2023" />
+            <Calendar dateFormat="dd/mm/yy" showIcon/>
             </label>
             <label className="checkbox">
               <input type="checkbox" value='checkbox' />

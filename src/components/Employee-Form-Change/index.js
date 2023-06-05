@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./EmployeeForm.css";
-
-
+import { Calendar } from 'primereact/calendar';
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+import "primereact/resources/primereact.min.css"; 
+import InputMask from 'react-input-mask';
 
 function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
 
@@ -18,7 +20,7 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
       department: changeId[1].department,
     })
   },[changeId])
-
+  console.log(value);
   console.log(value);
   const SubmitHandler = (e) => {
     e.preventDefault();
@@ -57,10 +59,9 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
               placeholder="Email"
               onChange={inputHandler}
             />
-            <input
+            <InputMask mask='+(999) 99 999-99-99'
               defaultValue={value.mobile}
               id="number"
-              type="number"
               name="mobile"
               placeholder="Mobile"
               onChange={inputHandler}
@@ -97,7 +98,7 @@ function EmployeeFormChange({ changeId, setChangeId, dispatch  }) {
               <option value="HR"> HR</option>
             </select>
             <label>
-              <input type="date"  />
+              <Calendar className="p-datepicker-today" dateFormat="dd/mm/yy"  showIcon/>
             </label>
             <label className="checkbox">
               <input type="checkbox" value='checkbox' />
